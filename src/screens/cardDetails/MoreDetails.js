@@ -40,12 +40,13 @@ const MoreDetails = (props) => {
                 </View>
 
                 <View style={styles.SecondView}>
+
                     <Icon style={styles.IconStyle} name='calendar-today' size={12} />
                     <Text>{item.date}</Text>
                 </View>
 
                 <View style={styles.ThirdView}>
-                   <Image style={styles.Image}>{item.image}</Image>
+                   
                     <Text style={[styles.Status, { color: cores[item.status] }]}>{item.status}</Text>
                 </View>
 

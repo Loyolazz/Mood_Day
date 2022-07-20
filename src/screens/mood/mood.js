@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, SafeAreaView } from 'react-native';
+import { View, Text, SafeAreaView } from 'react-native';
 import styles from './styles_mood'
 
 import { Icon } from "@rneui/themed";
