@@ -1,4 +1,4 @@
-import { SourceSansPro_400Regular } from '../../assets/fonts/SourceSansPro/SourceSansPro-Regular.ttf';
+//import { SourceSansPro_400Regular } from '../../assets/fonts/SourceSansPro/SourceSansPro-Regular.ttf';
 import { StyleSheet } from "react-native"
 
 
@@ -33,19 +33,21 @@ const styles = StyleSheet.create({
     },
     IconStyles: {
         color: 'white',
-        width: 50,
-        height: 50,
-        padding: 10,
-        borderRadius: 100,
         backgroundColor: '#304FFE',
+        borderRadius: 50,
+        padding: 15,
+        width: 60,
+        height: 60,
+        marginBottom: 15,
+        justifyContent: 'space-evenly',
     },
     DescrpIcon: {
-        fontFamily: SourceSansPro_400Regular,
+        fontFamily: 'SourceSansPro',
         fontWeight: '800',
         fontSize: 20,
         color: 'black',
-        paddingHorizontal: 10,
-        padding: -1,
+        padding: 1,
+        left: 12,
     },
     cardContainer: {
         margin: 15,
@@ -58,12 +60,12 @@ const styles = StyleSheet.create({
         top: 9,
     },
     Descri: {
-        fontFamily: SourceSansPro_400Regular,
+        fontFamily: 'SourceSansPro',
         margin: 12,
         fontSize: 16,
     },
     Status: {
-        fontFamily: SourceSansPro_400Regular,
+        fontFamily: 'SourceSansPro',
         fontSize: 25,
         letterSpacing: 0.5,
         fontWeight: '700',

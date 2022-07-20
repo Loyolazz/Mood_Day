@@ -4,7 +4,6 @@ import styles from './styles_login'
 
 export default class Login extends Component {
   render() {
-    console.log(this.props)
     return (
       <View style={styles.container}>
 
