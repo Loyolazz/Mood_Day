@@ -1,9 +1,7 @@
 import React from 'react';
 import { View, Text, SafeAreaView } from 'react-native';
 import styles from './styles_mood'
-
-import { Icon } from "@rneui/themed";
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Mood = () => {
     return (

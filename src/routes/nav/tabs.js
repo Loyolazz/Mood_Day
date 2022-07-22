@@ -14,7 +14,7 @@ const Tab = createBottomTabNavigator();
 const TabBottomRoutes = () => {
     return (
         <Tab.Navigator
-            initialRouteName="MoodScreen"
+            initialRouteName="Moods"
             screenOptions={{
                 headerShown: false, tabBarShowLabel: false, tabBarInactiveTintColor: 'rgba(48, 79, 254, 0.1)',
                 tabBarActiveTintColor: '#304FFE', tabBarStyle: { height: 70 }
@@ -33,7 +33,7 @@ const TabBottomRoutes = () => {
                         ),
                     }} />
 
-                <Tab.Screen name="MoodScreen" component={NavMoods}
+                <Tab.Screen name="Moods" component={NavMoods}
                     options={{
                         tabBarIcon: ({ color }) => (
                             <View style={
@@ -49,7 +49,7 @@ const TabBottomRoutes = () => {
                     listeners={({ navigation }) => ({
                         tabPress: (e) => {
                           e.preventDefault()
-                          navigation.navigate('ModalScreen')
+                          navigation.navigate('MoodScreens')
                         },
                       })}
                     />
