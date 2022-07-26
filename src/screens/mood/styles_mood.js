@@ -1,16 +1,15 @@
 import { StyleSheet } from 'react-native';
-import { SourceSansPro_400Regular } from '../../assets/fonts/SourceSansPro/SourceSansPro-Regular.ttf';
 
 
 const styles = StyleSheet.create({
     homepage: {
-        backgroundColor: '#DCDCDC',
-        width: 428,
-        height: 948,
-        padding: 100
+        padding: 1,
+        alignItems: 'center',
+        paddingTop: 110,
+        margin: 1,
     },
     homeInfo: {
-        fontFamily: SourceSansPro_400Regular,
+        fontFamily: 'SourceSansPro-Regular',
         fontStyle: 'normal',
         fontWeight: '400',
         fontSize: 15,
@@ -22,6 +21,7 @@ const styles = StyleSheet.create({
         color: '#808080',
    },
    neutral:{
+    fontFamily: 'SourceSansPro-Regular',
     marginTop: 150,
     padding: 1,
    }

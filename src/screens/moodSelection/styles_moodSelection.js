@@ -3,7 +3,8 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     SafeView: {
-        
+        alignItems: 'center',
+        backgroundColor: '#FFFFFF'
     },
     CloseBottom: {
         alignSelf: 'auto',
@@ -14,14 +15,12 @@ const styles = StyleSheet.create({
         width: 36,
         height: 36,
         padding: 8,
-
     },
     AllView: {
-        
+        alignItems: 'center'
     },
     TextView: {
         alignItems: 'center',
-        marginBottom: 5,
     },
     TextHowAreYou: {
         paddingTop: 40,
@@ -30,70 +29,70 @@ const styles = StyleSheet.create({
         fontFamily: 'SourceSansPro-Black',
     },
     ViewDate: {
-        paddingTop: 7,
+        paddingTop: 5,
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent: 'center',
-        margin: 5,
     },
     IconStyle: {
         fontSize: 12,
     },
-    HumorPng: {
-        paddingTop: 15,
+    HumorStyle:{
+        alignItems: 'center', 
+        justifyContent: 'space-evenly', 
+    },
+    HumorSelect: {
+        alignItems: 'center',
+        padding: 50,
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        marginStart: 20,
-        marginEnd: 10,
+        width: '100%'
+    },
+    Align:{
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        borderRadius: 100,
+        height: 50,
+        width: 50
     },
     Humors: {
-        width: 35,
-        height: 35,
-    },
-    HumorTxt: {
-        paddingTop: 8,
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        marginStart: 10,
-        marginEnd: 5,
+        width: 40,
+        height: 40,
     },
     HumorsTxts: {
+        
         fontFamily: 'SourceSansPro-Regular',
         fontSize:  11,
     },
     ActionDecision: {
+        paddingTop: 30,
         borderRadius: 20,
         backgroundColor: 'white',
-        marginTop: 50,
         padding: 10,
-        width: '90%',
+        width: 350,
         height: 450,
-        marginLeft: 21,
         borderWidth: 1,
     },
+    ActionIconTextStyle:{
+        width: '100%',
+        padding: 30,
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
     ActionIcons: {
-        margin: 8,
         paddingTop: 20,
         flexDirection: 'row',
-        justifyContent: 'space-evenly',
         flex: 1,
     },
     ActionIconStyle: {
         borderWidth: 1,
         borderColor: 'black',
-        display: 'flex',
-        justifyContent: 'center',
         padding: 10,
         borderRadius: 100,
         width: 59,
         height: 59,
-    },
-    ActionText: {
-        padding: 20,
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-       // marginStart: 2,
-       // marginEnd: 1,
     },
     ActionTextStyle:{
         fontFamily: 'SourceSansPro-Regular',
@@ -101,14 +100,17 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         color: '#000000',
     },
-    TextDay: {
+    TextDay:{
+        padding: 20,
+    },
+    iconsAlign:{
+
+    },
+    TextDayStyle: {
         borderRadius: 20,
         backgroundColor: 'white',
-        marginTop: 30,
-        // padding: 10,
-        width: '90%',
-        height: 89,
-        marginLeft: 21,
+        width: 350,
+        height: 100,
         borderWidth: 1,
     },
     SaveButtonLoc:{
@@ -127,7 +129,6 @@ const styles = StyleSheet.create({
         fontWeight: '900',
         fontSize: 15,
         lineHeight: 19,
-        alignItems: 'center',
         textAlign: 'center',
     }
 })
