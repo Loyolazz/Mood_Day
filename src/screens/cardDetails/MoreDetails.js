@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Card } from 'react-native-paper'
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import styles from './Styles_MoreDetails';
+import styles from './styles_MoreDetails';
 import DATA from '../../api/list';
 
 

@@ -4,8 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Icon } from "@rneui/themed";
 
 import StackModal from "../stackList/stackList";
-import Info from "../../screens/info/info";
-import Mood from "../../screens/mood/mood";
+import Profile from "../../screens/profile/profile";
 import NavMoods from "../navMoods/navMoods";
 
 
@@ -54,7 +53,7 @@ const TabBottomRoutes = () => {
                       })}
                     />
 
-                <Tab.Screen name="Infos" component={Info}
+                <Tab.Screen name="Infos" component={Profile}
                     options={{
                         tabBarIcon: ({ color }) => (
                             <View style={
