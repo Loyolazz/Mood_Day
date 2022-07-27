@@ -15,6 +15,7 @@ function MoodScreens({ navigation }) {
             setId(key)
         }
     };
+
     const [click, setClick] = useState(false)
     const [arrayAction, setArrayAction] = useState([])
     const clickActionAtive = (key) => {
