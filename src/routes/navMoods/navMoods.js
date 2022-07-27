@@ -7,13 +7,10 @@ const NavMoody = createNativeStackNavigator()
 
 const NavMoods = () => {
     return (
-        <NavMoody.Navigator initialRouteName="Mood" screenOptions={{ headerShown: false }}>
-               
-               <NavMoody.Screen name='Mood' component={Mood} />
+        <NavMoody.Navigator initialRouteName="MoodScreens" screenOptions={{ headerShown: false }}>
            
-            <NavMoody.Group screenOptions={{ presentation: 'modal' }}>
                 <NavMoody.Screen name='MoodScreens' component={MoodScreens} />
-            </NavMoody.Group>
+
         </NavMoody.Navigator>
     )
 }

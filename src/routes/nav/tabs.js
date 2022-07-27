@@ -8,12 +8,14 @@ import Profile from "../../screens/profile/profile";
 import NavMoods from "../navMoods/navMoods";
 
 
+const Placeholder = () => <View />
+
 const Tab = createBottomTabNavigator();
 
 const TabBottomRoutes = () => {
     return (
         <Tab.Navigator
-            initialRouteName="Moods"
+            initialRouteName="HomeScreen"
             screenOptions={{
                 headerShown: false, tabBarShowLabel: false, tabBarInactiveTintColor: 'rgba(48, 79, 254, 0.1)',
                 tabBarActiveTintColor: '#304FFE', tabBarStyle: { height: 70 }
@@ -32,9 +34,10 @@ const TabBottomRoutes = () => {
                         ),
                     }} />
 
-                <Tab.Screen name="Moods" component={NavMoods}
+                <Tab.Screen name="Moods" component={Placeholder}
                     options={{
                         tabBarIcon: ({ color }) => (
+                            
                             <View style={
                                 {
                                     borderWidth: 1, paddingHorizontal: 5,

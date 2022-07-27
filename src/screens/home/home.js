@@ -4,6 +4,7 @@ import { Card } from 'react-native-paper'
 import styles from './styles_home';
 import DATA from '../../api/list';
 import Actions from '../../api/actions';
+import MoodScreens from '../moodSelection/moodSelection';
 
 
 const Item = ({ id, date, status, descript, actions, image, hour, navigation }) => {
@@ -23,7 +24,7 @@ const Item = ({ id, date, status, descript, actions, image, hour, navigation }) 
 
               <Text style={[styles.Status, { color: cores[status] }]}>{status}</Text>
               <Text style={styles.Hora}>{hour}</Text>
-
+              
             </View>
           </View>
         </View>
@@ -61,6 +62,7 @@ const Home = (props) => {
 return (
     <FlatList
       data={DATA}
+      ListEmptyComponent={MoodScreens}
       renderItem={renderItem}
       keyExtractor={item => item.id}
     />
