@@ -66,10 +66,10 @@ const styles = StyleSheet.create({
         padding: 15,
         width: 350,
         height: 52,
-        borderRadius:6,
-        backgroundColor:'#fff',
-        borderColor:'#000',
-        borderWidth:2
+        borderRadius: 6,
+        backgroundColor: '#fff',
+        borderColor: '#000',
+        borderWidth: 2
     },
     PerfilExitButtonText: {
         color: '#000000',
@@ -78,6 +78,61 @@ const styles = StyleSheet.create({
         fontSize: 15,
         lineHeight: 19,
         textAlign: 'center',
+    },
+    ModalStyleOne: {
+        flex: 1,
+        alignContent: 'center',
+        backgroundColor: '#F5F5F5',
+    },
+    ModalStyleTwo:{
+        flex: 1,
+        backgroundColor: '#rgba(0,0,0,0.6)',
+        alignItems: 'center',
+    },
+    ModalContainer:{
+        width: 375,
+        height: 180,
+        borderRadius: 20,
+        marginTop: 260,
+        backgroundColor: '#F5F5F5',
+    },
+    ModalViewOne:{
+        width: 375,
+        height: 180,
+        borderRadius: 20,
+        marginTop: 260,
+        backgroundColor: '#F5F5F5',
+        fontSize: 15,
+        flexDirection: 'row',
+        justifyContent: 'space-around'
+    },
+    ViewModalBotton:{
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        paddingLeft: 155
+    },
+    ModalTop:{
+        paddingLeft: 30,
+        marginTop: 20,
+        marginBottom: 45
+    },  
+    Atteion: {
+        marginBottom: 10,
+        fontSize: 24,
+        color: '#000',
+        fontWeight: '700',
+        justifyContent: 'flex-start',
+        fontFamily: 'SourceSansPro-Regular'
+    },
+    Exit: {
+        fontSize: 19,
+        fontFamily: 'SourceSansPro-Regular'
+    },
+    CanYes:{
+        fontSize: 18,
+        fontWeight: '700',
+        color: '#000',
+        fontFamily: 'SourceSansPro-Regular',
     }
 })
 

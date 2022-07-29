@@ -4,9 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Icon } from "@rneui/themed";
 
 import StackModal from "../stackList/stackList";
-import Profile from "../../screens/profile/profile";
-import NavMoods from "../navMoods/navMoods";
-
+import PerfilMov from "../perfilMov/perfilMov";
 
 const Placeholder = () => <View />
 
@@ -56,7 +54,7 @@ const TabBottomRoutes = () => {
                       })}
                     />
 
-                <Tab.Screen name="Infos" component={Profile}
+                <Tab.Screen name="Infos" component={PerfilMov}
                     options={{
                         tabBarIcon: ({ color }) => (
                             <View style={

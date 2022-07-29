@@ -1,35 +1,52 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Text, View, Image, TextInput, TouchableOpacity } from 'react-native'
 import styles from './styles_login'
+import { useNavigation } from '@react-navigation/native';
 
-export default class Login extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
+const Login = () => {
+  const navigation = useNavigation()
 
-        <Image
-          source={require('../../assets/login.png')}
-          style={styles.logo}
-        />
+  const [Email, setEmail] = useState()
 
-        <TextInput
-          style={styles.input}
-          placeholder=" e-mail "
-        />
+  function ValidateEmail() {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(Email)) {
+      
+      navigation.navigate('Tab')
+    }
+    alert("You have entered an invalid email address!")
+  }
+  
 
-        <TextInput
-          style={styles.input}
-          secureTextEntry={true}
-          placeholder=" senha "
-        />
-        <TouchableOpacity 
-        style={styles.button} 
-        onPress={() => this.props.navigation.navigate('Tab')}>
+
+  return (
+    <View style={styles.container}>
+
+      <Image
+        source={require('../../assets/login.png')}
+        style={styles.logo}
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder=" e-mail "
+        onChangeText={(Text) => setEmail(Text)}
+        value={Email}
+      />
+
+      <TextInput
+        style={styles.input}
+        secureTextEntry
+        placeholder=" senha "
+      />
+      <TouchableOpacity
+        style={styles.button}
+        onPress={ValidateEmail}>
         <Text style={styles.buttonText}>ENTRAR</Text>
-        </TouchableOpacity>
+      </TouchableOpacity>
 
-      </View>
-    )
+    </View>
+  )
 }
-}
+
+export default Login
 

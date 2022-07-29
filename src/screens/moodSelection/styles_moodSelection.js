@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
 
-
 const styles = StyleSheet.create({
     SafeView: {
         alignItems: 'center',
@@ -66,7 +65,7 @@ const styles = StyleSheet.create({
         fontSize:  11,
     },
     ActionDecision: {
-        paddingTop: 30,
+        paddingTop: 20,
         borderRadius: 20,
         backgroundColor: 'white',
         padding: 10,
@@ -91,8 +90,6 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         padding: 10,
         borderRadius: 100,
-        width: 59,
-        height: 59,
     },
     ActionTextStyle:{
         fontFamily: 'SourceSansPro-Regular',
@@ -104,7 +101,12 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     iconsAlign:{
-
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        borderRadius: 100,
+        height: 60,
+        width: 60
     },
     TextDayStyle: {
         borderRadius: 20,
