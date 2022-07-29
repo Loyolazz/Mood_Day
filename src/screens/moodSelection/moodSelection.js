@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import Icons from 'react-native-vector-icons/MaterialIcons';
 import { TextInput } from 'react-native';
 import { emoji } from './emojis';
+import { api } from '../../services/api';
 
 function MoodScreens({ navigation }) {
     const [id, setId] = useState(0)
