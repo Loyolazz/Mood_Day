@@ -41,7 +41,13 @@ const styles = StyleSheet.create({
       color: '#304FFE',
       fontWeight: 'bold',
       left: 32,
-    }
-  })
+    },
+    Error: {
+      justifyContent:'center',
+      alignItems:'center',
+      flex:1,
+      marginBottom:200
+  }
+})
 
 export default styles
