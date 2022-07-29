@@ -7,17 +7,20 @@ import { TextInput } from 'react-native';
 import { emoji } from './emojis';
 import { api } from '../../services/api';
 
-function MoodScreens({ navigation }) {
+const MoodScreens = () => {
     const [id, setId] = useState(0)
-    const humorActive = (key) => {
+    const [moods, setMoods] = useState('')
+    const humorActive = (key, id) => {
         if (key === id) {
             setId(null)
         }
         else {
+            setMoods(emoji[key].type)
             setId(key)
         }
-    };
+    }
 
+    const [Dscrpt, setDscrpt] = useState('')
     const [click, setClick] = useState(false)
     const [arrayAction, setArrayAction] = useState([])
     const clickActionAtive = (key) => {
@@ -27,6 +30,24 @@ function MoodScreens({ navigation }) {
         }
         else if (arrayAction.length < 3) {
             setArrayAction([...arrayAction, key])
+        }
+    }
+
+    const dailyEntry = async () => {
+        try {
+            await api.post('/daily_entries', {
+                "daily_entry": {
+                    "mood": moods,
+                    "activity_ids": arrayAction,
+                    "description": Dscrpt
+                }
+            },{ 
+                headers:{
+                Authorization:`Bearer vdcWUER8mqkRQ9Jqk3wVaMY7Lz5p4iblnpXDoYk8SZY`
+                }
+            })
+        } catch (error) {
+            console.log(Dscrpt, arrayAction, moods, error)
         }
     }
 
@@ -49,13 +70,13 @@ function MoodScreens({ navigation }) {
                         <Text> <Icons style={styles.IconStyle} name='schedule' /> 08:35</Text>
                     </View>
                     <View style={styles.HumorSelect}>
-                        { emoji.map((item,index) => (
-                            <View style={styles.HumorStyle}key={index}>
-                            <TouchableOpacity onPress={() => humorActive(index)} style={[styles.Align, { backgroundColor: id === index ? '#304ffe' : '#FFFF'  }]}>
-                                <Image style={styles.Humors} source={item.image} />
-                            </TouchableOpacity>
-                            <Text style={[styles.HumorsTxts,{color: id === index ? item.color : null}]}>{item.name}</Text>
-                        </View>
+                        {emoji.map((item, index) => (
+                            <View style={styles.HumorStyle} key={index}>
+                                <TouchableOpacity onPress={() => humorActive(index, id)} style={[styles.Align, { backgroundColor: id === index ? '#304ffe' : '#FFFF' }]}>
+                                    <Image style={styles.Humors} source={item.image} />
+                                </TouchableOpacity>
+                                <Text style={[styles.HumorsTxts, { color: id === index ? item.color : null }]}>{item.name}</Text>
+                            </View>
                         ))}
                     </View>
                     <View>
@@ -124,18 +145,22 @@ function MoodScreens({ navigation }) {
                     </View>
                 </View>
                 <View style={styles.TextDay}>
-                    <TextInput style={styles.TextDayStyle} placeholder='Escreva aqui o que aconteceu...'></TextInput>
+                    <TextInput style={styles.TextDayStyle}
+                        placeholder='Escreva aqui o que aconteceu...'
+                        onChangeText={(AconteceuHoje) => setDscrpt(AconteceuHoje)}
+                    ></TextInput>
                 </View>
                 <View style={styles.SaveButtonLoc}>
                     <TouchableOpacity
                         style={styles.SaveButton}
-                        onPress={() => this.props.navigation.navigate()}>
+                        onPress={() => dailyEntry()}>
                         <Text style={styles.SaveButtonText}>SALVAR</Text>
                     </TouchableOpacity>
                 </View>
             </ScrollView>
         </View>
-    );
+    )
 }
-
 export default MoodScreens
+
+
