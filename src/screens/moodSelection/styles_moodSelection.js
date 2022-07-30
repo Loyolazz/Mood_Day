@@ -60,7 +60,6 @@ const styles = StyleSheet.create({
         height: 40,
     },
     HumorsTxts: {
-        
         fontFamily: 'SourceSansPro-Regular',
         fontSize:  11,
     },
@@ -98,7 +97,15 @@ const styles = StyleSheet.create({
         color: '#000000',
     },
     TextDay:{
-        padding: 20,
+        borderRadius: 22,
+        backgroundColor: 'white',
+        marginTop: 25,
+        padding: 10,
+        width: '90%',
+        height: 98,
+        left: 20,
+        borderWidth: 1,
+        marginBottom: 3
     },
     iconsAlign:{
         alignItems: 'center',
@@ -109,11 +116,7 @@ const styles = StyleSheet.create({
         width: 60
     },
     TextDayStyle: {
-        borderRadius: 20,
-        backgroundColor: 'white',
-        width: 350,
-        height: 100,
-        borderWidth: 1,
+        marginBottom: 40
     },
     SaveButtonLoc:{
         padding: 20,

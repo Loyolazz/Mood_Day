@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
 import { View, Text, SafeAreaView, TouchableOpacity, ScrollView, Image } from 'react-native';
-import styles from './styles_MoodSelection';
+import styles from './styles_moodSelection';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Icons from 'react-native-vector-icons/MaterialIcons';
 import { TextInput } from 'react-native';
 import { emoji } from './emojis';
 import { api } from '../../services/api';
+import { useNavigation } from '@react-navigation/native';
+
 
 const MoodScreens = () => {
-    const [id, setId] = useState(0)
+    const [id, setId] = useState(5)
     const [moods, setMoods] = useState('')
     const humorActive = (key, id) => {
         if (key === id) {
-            setId(null)
+            setId(5)
         }
         else {
             setMoods(emoji[key].type)
             setId(key)
         }
     }
-
+    const navigation = useNavigation()
     const [Dscrpt, setDscrpt] = useState('')
     const [click, setClick] = useState(false)
     const [arrayAction, setArrayAction] = useState([])
@@ -41,16 +43,13 @@ const MoodScreens = () => {
                     "activity_ids": arrayAction,
                     "description": Dscrpt
                 }
-            },{ 
-                headers:{
-                Authorization:`Bearer vdcWUER8mqkRQ9Jqk3wVaMY7Lz5p4iblnpXDoYk8SZY`
-                }
+            }).then(Response => {
+                console.log(Response)
             })
         } catch (error) {
             console.log(Dscrpt, arrayAction, moods, error)
         }
     }
-
 
     return (
         <View style={styles.SafeView}>
@@ -84,19 +83,19 @@ const MoodScreens = () => {
                             <View style={styles.ActionIconTextStyle}>
                                 <View>
                                     <TouchableOpacity onPress={() => clickActionAtive(0)} style={[styles.iconsAlign, { backgroundColor: click && arrayAction.indexOf(0) !== -1 ? '#304ffe' : 'white' }]}>
-                                        <Icons style={styles.ActionIconStyle} name='king-bed' size={38} color='#000000' />
+                                        <Icons style={styles.ActionIconStyle} name='king-bed' size={38} color={click && arrayAction.indexOf(0) !== -1 ? '#fff' : '#000'} />
                                     </TouchableOpacity>
                                     <Text style={styles.ActionTextStyle}>  descanso</Text>
                                 </View>
                                 <View>
                                     <TouchableOpacity onPress={() => clickActionAtive(1)} style={[styles.iconsAlign, { backgroundColor: click && arrayAction.indexOf(1) !== -1 ? '#304ffe' : 'white' }]}>
-                                        <Icon style={styles.ActionIconStyle} name='gratipay' size={38} color='#000000' />
+                                        <Icon style={styles.ActionIconStyle} name='gratipay' size={38} color={click && arrayAction.indexOf(1) !== -1 ? '#fff' : '#000'} />
                                     </TouchableOpacity>
                                     <Text style={styles.ActionTextStyle}>   encontro</Text>
                                 </View>
                                 <View>
                                     <TouchableOpacity onPress={() => clickActionAtive(2)} style={[styles.iconsAlign, { backgroundColor: click && arrayAction.indexOf(2) !== -1 ? '#304ffe' : 'white' }]}>
-                                        <Icons style={styles.ActionIconStyle} name='theaters' size={38} color='#000000' />
+                                        <Icons style={styles.ActionIconStyle} name='theaters' size={38} color={click && arrayAction.indexOf(2) !== -1 ? '#fff' : '#000'} />
                                     </TouchableOpacity>
                                     <Text style={styles.ActionTextStyle}>filmes e séries</Text>
                                 </View>
@@ -104,19 +103,19 @@ const MoodScreens = () => {
                             <View style={styles.ActionIconTextStyle}>
                                 <View>
                                     <TouchableOpacity onPress={() => clickActionAtive(3)} style={[styles.iconsAlign, { backgroundColor: click && arrayAction.indexOf(3) !== -1 ? '#304ffe' : 'white' }]}>
-                                        <Icon style={styles.ActionIconStyle} name='shopify' size={38} color='#000000' />
+                                        <Icon style={styles.ActionIconStyle} name='shopify' size={38} color={click && arrayAction.indexOf(3) !== -1 ? '#fff' : '#000'} />
                                     </TouchableOpacity>
                                     <Text style={styles.ActionTextStyle}>   compras</Text>
                                 </View>
                                 <View>
                                     <TouchableOpacity onPress={() => clickActionAtive(4)} style={[styles.iconsAlign, { backgroundColor: click && arrayAction.indexOf(4) !== -1 ? '#304ffe' : 'white' }]}>
-                                        <Icons style={styles.ActionIconStyle} name='fastfood' size={38} color='#000000' />
+                                        <Icons style={styles.ActionIconStyle} name='fastfood' size={38} color={click && arrayAction.indexOf(4) !== -1 ? '#fff' : '#000'} />
                                     </TouchableOpacity>
                                     <Text style={styles.ActionTextStyle}>boa refeição</Text>
                                 </View>
                                 <View>
                                     <TouchableOpacity onPress={() => clickActionAtive(5)} style={[styles.iconsAlign, { backgroundColor: click && arrayAction.indexOf(5) !== -1 ? '#304ffe' : 'white' }]}>
-                                        <Icons style={styles.ActionIconStyle} name='celebration' size={38} color='#000000' />
+                                        <Icons style={styles.ActionIconStyle} name='celebration' size={38} color={click && arrayAction.indexOf(5) !== -1 ? '#fff' : '#000'} />
                                     </TouchableOpacity>
                                     <Text style={styles.ActionTextStyle}>      festa</Text>
                                 </View>
@@ -124,19 +123,19 @@ const MoodScreens = () => {
                             <View style={styles.ActionIconTextStyle}>
                                 <View>
                                     <TouchableOpacity onPress={() => clickActionAtive(6)} style={[styles.iconsAlign, { backgroundColor: click && arrayAction.indexOf(6) !== -1 ? '#304ffe' : 'white' }]}>
-                                        <Icon style={styles.ActionIconStyle} name='futbol' size={38} color='#000000' />
+                                        <Icon style={styles.ActionIconStyle} name='futbol' size={38} color={click && arrayAction.indexOf(6) !== -1 ? '#fff' : '#000'} />
                                     </TouchableOpacity>
                                     <Text style={styles.ActionTextStyle}>     esporte</Text>
                                 </View>
                                 <View>
                                     <TouchableOpacity onPress={() => clickActionAtive(7)} style={[styles.iconsAlign, { backgroundColor: click && arrayAction.indexOf(7) !== -1 ? '#304ffe' : 'white' }]}>
-                                        <Icons style={styles.ActionIconStyle} name='restaurant-menu' size={38} color='#000000' />
+                                        <Icons style={styles.ActionIconStyle} name='restaurant-menu' size={38} color={click && arrayAction.indexOf(7) !== -1 ? '#fff' : '#000'} />
                                     </TouchableOpacity>
                                     <Text style={styles.ActionTextStyle}>   cozinhar</Text>
                                 </View>
                                 <View>
                                     <TouchableOpacity onPress={() => clickActionAtive(8)} style={[styles.iconsAlign, { backgroundColor: click && arrayAction.indexOf(8) !== -1 ? '#304ffe' : 'white' }]}>
-                                        <Icon style={styles.ActionIconStyle} name='dice-d20' size={39} color='#000000' />
+                                        <Icon style={styles.ActionIconStyle} name='dice-d20' size={39} color={click && arrayAction.indexOf(8) !== -1 ? '#fff' : '#000'}/>
                                     </TouchableOpacity>
                                     <Text style={styles.ActionTextStyle}>      jogos</Text>
                                 </View>

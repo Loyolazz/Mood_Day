@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { Text, View, Image, TextInput, TouchableOpacity } from 'react-native'
+import { Text, View, Image, TextInput, TouchableOpacity, Modal } from 'react-native'
 import styles from './styles_login'
 import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { api } from '../../services/api';
 
 const Login = () => {
   const navigation = useNavigation()
-
+  const [hidePass, setHidePass] = useState(true);
   const [Email, setEmail] = useState()
   const [Password, setPassword] = useState()
   const [Error, setErro] = useState(false)
 
   function ValidateEmail() {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(Email)) {
-
       return true
     }
     else {
@@ -40,7 +40,8 @@ const Login = () => {
         'client_secret': '389JLi1Nd6DQ_soCI85C57ueTlMZ_JR7pRq6SJ0GaB0'
       }).then(Response => {
         navigation.navigate('Tab')
-        console.log(Response)
+        api.defaults.headers.common['Authorization'] = `Bearer ${Response.data.access_token}`
+        //console.log(Response)
       })
     }
 
@@ -50,38 +51,47 @@ const Login = () => {
     }
   }
 
+
   return (
     <View style={styles.container}>
-      
-      <Image
-        source={require('../../assets/login.png')}
-        style={styles.logo}
-      />
+      <View>
+        <Image
+          source={require('../../assets/login.png')}
+          style={styles.logo}
+        />
+      </View>
 
-      <TextInput
-        style={styles.input}
-        placeholder=" e-mail "
-        onChangeText={(Text) => setEmail(Text)}
-        value={Email}
-      />
+      <View style={[styles.inputEmail, styles.inputArea]}>
+        <TextInput
+          placeholder=" e-mail "
+          onChangeText={(Text) => setEmail(Text)}
+          value={Email}
+        />
+      </View>
 
-      <TextInput
-        style={styles.input}
-        secureTextEntry
-        placeholder=" senha "
-        onChangeText={(Text) => setPassword(Text)}
-        value={Password}
-      />
+      <View style={[styles.inputPassword, styles.inputArea]}>
 
-      <TouchableOpacity
-        style={styles.button}
-        onPress={validInput}>
-        <Text style={styles.buttonText}>ENTRAR</Text>
-      </TouchableOpacity>
-      
+        <TextInput
+          secureTextEntry={hidePass}
+          placeholder=" senha "
+          onChangeText={(Text) => setPassword(Text)}
+          value={Password}
+        />
+        <TouchableOpacity
+          onPress={() => setHidePass(!hidePass)}
+        >
+          <Icon style={{ right: 10 }} name={hidePass ? "eye" : 'eye-off'} color='#969696' size={20} />
+        </TouchableOpacity>
+      </View>
+      <View>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={validInput}>
+          <Text style={styles.buttonText}>ENTRAR</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   )
 }
 
 export default Login
-
