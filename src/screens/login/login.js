@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Text, View, Image, TextInput, TouchableOpacity } from 'react-native'
 import styles from './styles_login'
 import { useNavigation } from '@react-navigation/native';
-import { api } from '../../services/api';
 
 const Login = () => {
   const navigation = useNavigation()
@@ -23,29 +22,11 @@ const Login = () => {
 
   function validInput() {
     if (ValidateEmail()) {
-      validApi()
+      navigation.navigate('Tab')
+      setErro(false)
     }
     else {
       console.log('aconteceu um erro')
-    }
-  }
-
-  async function validApi() {
-    try {
-      await api.post('/oauth/token', {
-        'grant_type': 'password',
-        'email': Email,
-        'password': Password,
-        'client_id': '3mGWGtxIEKyhq_HGG4cq6hsTOd_zn1SuTD3_cafjUPc',
-        'client_secret': '389JLi1Nd6DQ_soCI85C57ueTlMZ_JR7pRq6SJ0GaB0'
-      }).then(Response => {
-        navigation.navigate('Tab')
-        console.log(Response)
-      })
-    }
-
-    catch (error) {
-      console.log(error)
       setErro(true)
     }
   }
