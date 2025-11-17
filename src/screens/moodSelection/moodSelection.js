@@ -5,9 +5,10 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import Icons from 'react-native-vector-icons/MaterialIcons';
 import { TextInput } from 'react-native';
 import { emoji } from './emojis';
-import { api } from '../../services/api';
+import { useNavigation } from '@react-navigation/native';
 
 const MoodScreens = () => {
+    const navigation = useNavigation()
     const [id, setId] = useState(0)
     const [moods, setMoods] = useState('')
     const humorActive = (key, id) => {
@@ -33,22 +34,14 @@ const MoodScreens = () => {
         }
     }
 
-    const dailyEntry = async () => {
-        try {
-            await api.post('/daily_entries', {
-                "daily_entry": {
-                    "mood": moods,
-                    "activity_ids": arrayAction,
-                    "description": Dscrpt
-                }
-            },{ 
-                headers:{
-                Authorization:`Bearer vdcWUER8mqkRQ9Jqk3wVaMY7Lz5p4iblnpXDoYk8SZY`
-                }
-            })
-        } catch (error) {
-            console.log(Dscrpt, arrayAction, moods, error)
-        }
+    const dailyEntry = () => {
+        console.log('Entrada do dia:', { moods, arrayAction, Dscrpt })
+        setId(null)
+        setMoods('')
+        setArrayAction([])
+        setDscrpt('')
+        setClick(false)
+        navigation.goBack()
     }
 
 
