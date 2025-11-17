@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import { Text, View, Image, TextInput, TouchableOpacity } from 'react-native'
 import styles from './styles_login'
 import { useNavigation } from '@react-navigation/native';
-import { api } from '../../services/api';
 
 const Login = () => {
   const navigation = useNavigation()
 
-  const [Email, setEmail] = useState()
-  const [Password, setPassword] = useState()
-  const [Error, setErro] = useState(false)
+  const [Email, setEmail] = useState('')
+  const [Password, setPassword] = useState('')
+  const [Error, setErro] = useState('')
 
   function ValidateEmail() {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(Email)) {
@@ -22,31 +21,17 @@ const Login = () => {
   }
 
   function validInput() {
+    if (!Email.trim() || !Password.trim()) {
+      setErro('Preencha e-mail e senha para continuar')
+      return
+    }
+
     if (ValidateEmail()) {
-      validApi()
+      navigation.navigate('Tab')
+      setErro('')
     }
     else {
-      console.log('aconteceu um erro')
-    }
-  }
-
-  async function validApi() {
-    try {
-      await api.post('/oauth/token', {
-        'grant_type': 'password',
-        'email': Email,
-        'password': Password,
-        'client_id': '3mGWGtxIEKyhq_HGG4cq6hsTOd_zn1SuTD3_cafjUPc',
-        'client_secret': '389JLi1Nd6DQ_soCI85C57ueTlMZ_JR7pRq6SJ0GaB0'
-      }).then(Response => {
-        navigation.navigate('Tab')
-        console.log(Response)
-      })
-    }
-
-    catch (error) {
-      console.log(error)
-      setErro(true)
+      setErro('Digite um e-mail válido')
     }
   }
 
@@ -61,6 +46,8 @@ const Login = () => {
       <TextInput
         style={styles.input}
         placeholder=" e-mail "
+        keyboardType="email-address"
+        autoCapitalize="none"
         onChangeText={(Text) => setEmail(Text)}
         value={Email}
       />
@@ -69,6 +56,7 @@ const Login = () => {
         style={styles.input}
         secureTextEntry
         placeholder=" senha "
+        autoCapitalize="none"
         onChangeText={(Text) => setPassword(Text)}
         value={Password}
       />
@@ -78,7 +66,9 @@ const Login = () => {
         onPress={validInput}>
         <Text style={styles.buttonText}>ENTRAR</Text>
       </TouchableOpacity>
-      
+
+      {Error ? <Text style={styles.errorText}>{Error}</Text> : null}
+
     </View>
   )
 }
