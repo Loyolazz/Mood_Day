@@ -7,7 +7,7 @@ const PerMov = createNativeStackNavigator()
 
 const PerfilMov = () => {
     return (
-        <PerMov.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
+        <PerMov.Navigator initialRouteName=" " screenOptions={{ headerShown: false }}>
                 <PerMov.Screen name='Profile' component={Profile} />
                 <PerMov.Screen name='EditProfile' component={EditProfile} />
         </PerMov.Navigator>

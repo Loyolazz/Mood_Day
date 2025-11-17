@@ -45,8 +45,8 @@ const Actions = (props) => {
     const actionSize = props.data.length
     return (
         <View style={{flexDirection: 'row'}}>
-            {props.data.map((value) => (
-                <View style={{flexDirection: 'row'}}>
+            {props.data.map((value, index) => (
+                <View key={index} style={{flexDirection: 'row'}}>
                     <Image style= {{width: 20, height: 20,}} source={actionsList[value].image}/>
                     <Text style={styles.order}>{actionsList[value].nome}</Text>
                     {props.data[actionSize - 1] !== value && (<Text style={styles.dot}> • </Text>)}
