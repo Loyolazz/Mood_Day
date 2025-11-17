@@ -42,12 +42,12 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       left: 32,
     },
-    Error: {
-      justifyContent:'center',
-      alignItems:'center',
-      flex:1,
-      marginBottom:200
-  }
+    errorText: {
+      color: '#FFF',
+      fontFamily: SourceSansPro_400Regular,
+      fontSize: 16,
+      marginTop: -10,
+    },
 })
 
 export default styles
